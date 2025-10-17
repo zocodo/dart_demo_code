@@ -1,3 +1,6 @@
+// (int a = 10),参数带默认值的，调用时可以不传，使用默认值
+// (int? a), 参数带？号的，调用时可不传，默认为 null
+
 void main() {
   enableFlags({bool? bold, required bool hidden}) {
     print(bold);
