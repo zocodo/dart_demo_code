@@ -5,10 +5,19 @@ String readThermometer() {
 typedef ButtonItem = ({String label, void Function()? onPressed});
 
 void main() {
-  var record = ('first', a: 2, b: true, 'last');
+  // 记录不能在 命名字段 前后加位置字段
+  // (String, {int a, bool b}, String) 不合法
+  // 下面语句会被转化成 ('first', 'last', a: 2, b: true);
+  (String, String, {int a, bool b}) record = (
+    'first',
+    a: 2,
+    b: true,
+    'last',
+  );
   print(record);
   print(record.a);
   print(record.$1);
+  print(record.$2);
 
   (int, int) swap((int, int) record) {
     var (a, b) = record;
